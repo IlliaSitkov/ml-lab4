@@ -14,6 +14,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.multioutput import MultiOutputClassifier
 from joblib import dump
 
+nltk.download("punkt")
 nltk.download("wordnet", "lib")
 wordnet_zip_path = "lib/corpora/wordnet.zip"
 wordnet_extract_path = "lib/corpora/"
