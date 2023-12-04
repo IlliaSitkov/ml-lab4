@@ -31,5 +31,5 @@ def test_invariance(inp_a, inp_b, label, predictor, vectorizer, dim_reducer):
 def get_label(text, predictor, vectorizer, dim_reducer):
     text_preproc, = preprocess_comments([text])
     vect = vectorizer.transform([text_preproc])
-    vect_reduced = dim_reducer.transform(vect)
+    vect_reduced = dim_reducer.transform(vect.toarray())
     return predictor.predict(vect_reduced)
