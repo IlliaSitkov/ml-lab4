@@ -23,9 +23,7 @@ wordnet_extract_path = "/kaggle/output/corpora/"
 
 nltk.data.path.append("/kaggle/output")
 
-if not os.path.exists(
-        os.path.join(wordnet_extract_path, "corpora", "wordnet")
-):
+if not os.path.exists(os.path.join(wordnet_extract_path, "corpora", "wordnet")):
     with zipfile.ZipFile(wordnet_zip_path, "r") as zip_ref:
         zip_ref.extractall(wordnet_extract_path)
 
