@@ -14,6 +14,16 @@ from sklearn.metrics import accuracy_score
 from sklearn.multioutput import MultiOutputClassifier
 from joblib import dump
 
+nltk.download("wordnet", "lib")
+wordnet_zip_path = "lib/corpora/wordnet.zip"
+wordnet_extract_path = "lib/corpora/"
+nltk.data.path.append("lib")
+
+if not os.path.exists(
+        os.path.join(wordnet_extract_path, "corpora", "wordnet")
+):
+    with zipfile.ZipFile(wordnet_zip_path, "r") as zip_ref:
+        zip_ref.extractall(wordnet_extract_path)
 
 def lemmatize_text(text):
     lemmatizer = WordNetLemmatizer()
@@ -35,16 +45,6 @@ def preprocess_comments(comments):
 
 
 def train_model():
-    nltk.download("wordnet", "/kaggle/output")
-    wordnet_zip_path = "/kaggle/output/corpora/wordnet.zip"
-    wordnet_extract_path = "/kaggle/output/corpora/"
-    nltk.data.path.append("/kaggle/output")
-
-    if not os.path.exists(
-            os.path.join(wordnet_extract_path, "corpora", "wordnet")
-    ):
-        with zipfile.ZipFile(wordnet_zip_path, "r") as zip_ref:
-            zip_ref.extractall(wordnet_extract_path)
 
     train_dataset = pd.read_csv("/kaggle/input/kma-ml2/kmaml223/train.csv")
     train_comments = train_dataset["comment_text"].values
