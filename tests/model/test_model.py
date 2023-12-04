@@ -1,5 +1,5 @@
 import pytest
-from src.main import preprocess_comments
+from src.preproc import preprocess_comments
 
 
 def test_label_length(predictor, vectorizer, dim_reducer):
