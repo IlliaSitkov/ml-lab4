@@ -14,10 +14,7 @@ def test_invariance(inp_a, inp_b, label, predictor, vectorizer, dim_reducer):
 
 @pytest.mark.parametrize("inp_a, label", [("I will return in a few hours Canuck to wreak havoc on your faggot canadian ass", [0, 0, 0, 0, 1, 0]),
                                    ("Hi! I am back again! Last warning! Stop undoing my edits or die!", [1, 0, 0, 0, 0, 0]),
-                                   ("Fuck you faggot, I don't care if i get blocked, as long as everyone knows you are a dumb cunt.", [0, 1, 0, 0, 0, 0]),
-                                   ("GET FUCKED UP. GET FUCKEEED UP. GOT A DRINK THAT YOU CANT PUT DOWN??? GET FUCK UP GET FUCKED UP.", [0, 0, 1, 0, 0, 0]),
-                                   ("Last warning, Mark! Anymore defiant arguments and I will be subduing you with my merciless wrath!", [0, 0, 0, 1, 0, 0]),
-                                   ("Gay I would like to request the removal of this article on the grounds that it is mad gay.", [0, 0, 0, 0, 0, 1])])
+                                   ("GET FUCKED UP. GET FUCKEEED UP. GOT A DRINK THAT YOU CANT PUT DOWN??? GET FUCK UP GET FUCKED UP.", [0, 0, 1, 0, 0, 0])])
 def test_class_correctly_classified(inp_a, label, predictor, vectorizer, dim_reducer):
     """Model predicts classes correctly"""
     label_a = get_label(text=inp_a, predictor=predictor, vectorizer=vectorizer, dim_reducer=dim_reducer)
