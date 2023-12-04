@@ -4,7 +4,10 @@ from src.main import preprocess_comments
 
 def test_label_length(predictor, vectorizer, dim_reducer):
     """Predictor returns label with 6 classes"""
-    label_a = get_label(text="Stupid peace of shit stop deleting my stuff asshole go die and fall in a hole go to hell!", predictor=predictor, vectorizer=vectorizer, dim_reducer=dim_reducer)
+    label_a = get_label(text="Stupid peace of shit stop deleting my stuff asshole go die and fall in a hole go to hell!",
+                        predictor=predictor,
+                        vectorizer=vectorizer,
+                        dim_reducer=dim_reducer)
     assert len(label_a) == 6
 
 
