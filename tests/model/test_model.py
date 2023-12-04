@@ -12,12 +12,12 @@ def test_invariance(inp_a, inp_b, label, predictor, vectorizer, dim_reducer):
     assert label_a == label_b == label
 
 
-@pytest.mark.parametrize("inp_a, label", [("YOUR FILTHY MOTHER was walking in the street", [0, 0, 0, 0, 1, 0]),
+@pytest.mark.parametrize("inp_a, label", [("I will return in a few hours Canuck to wreak havoc on your faggot canadian ass", [0, 0, 0, 0, 1, 0]),
                                    ("Hi! I am back again! Last warning! Stop undoing my edits or die!", [1, 0, 0, 0, 0, 0]),
-                                   ("COCKSUCKER BEFORE YOU PISS AROUND ON MY WORK", [0, 1, 0, 0, 0, 0]),
+                                   ("What a motherfucking piece of crap those fuckheads for blocking us!", [0, 1, 0, 0, 0, 0]),
                                    ("GET FUCKED UP. GET FUCKEEED UP. GOT A DRINK THAT YOU CANT PUT DOWN??? GET FUCK UP GET FUCKED UP.", [0, 0, 1, 0, 0, 0]),
-                                   ("I WILL END YOU!!!", [0, 0, 0, 1, 0, 0]),
-                                   ("A pair of jew-hating weiner nazi schmucks.", [0, 0, 0, 0, 0, 1])])
+                                   ("Fuck you, Smith. Please have me notified when you die. I want to dance on your grave.", [0, 0, 0, 1, 0, 0]),
+                                   ("I am going to murder ZimZalaBim ST47 for being evil homosexual jews.", [0, 0, 0, 0, 0, 1])])
 def test_class_correctly_classified(inp_a, label, predictor, vectorizer, dim_reducer):
     """Model predicts classes correctly"""
     label_a = get_label(text=inp_a, predictor=predictor, vectorizer=vectorizer, dim_reducer=dim_reducer)
