@@ -11,15 +11,16 @@ def test_label_length(predictor, vectorizer, dim_reducer):
 def test_vectorizer_numerical_1024(vectorizer):
     """Vectorizer converts text to array of numbers of length 1024"""
     vect = vectorizer.transform(["Stupid peace of shit stop deleting my stuff asshole go die and fall in a hole go to hell!"])
-    vect = vect.toarray()
+    vect = vect.toarray().tolist()
     assert len(vect) == 1024 and all(isinstance(element, (int, float)) for element in vect)
 
 
 def test_reducer_reduces(vectorizer, dim_reducer):
     """Dimensionality reducer reduces the dimentionality of the vector"""
     vect = vectorizer.transform(["Stupid peace of shit stop deleting my stuff asshole go die and fall in a hole go to hell!"])
-    vect_reduced = dim_reducer.transform(vect.toarray())
-    assert len(vect) >= len(vect_reduced)
+    vect = vect.toarray()
+    vect_reduced = dim_reducer.transform(vect)
+    assert vect.shape[0] >= len(vect_reduced)
 
 
 @pytest.mark.parametrize("inp_a, inp_b, label", [
@@ -39,7 +40,6 @@ def test_class_correctly_classified(inp_a, label, predictor, vectorizer, dim_red
     """Model predicts classes correctly"""
     label_a = get_label(text=inp_a, predictor=predictor, vectorizer=vectorizer, dim_reducer=dim_reducer)
     assert label_a[label.index(1)] == 1
-
 
 
 def get_label(text, predictor, vectorizer, dim_reducer):
