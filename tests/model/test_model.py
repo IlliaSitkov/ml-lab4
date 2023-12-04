@@ -18,9 +18,9 @@ def test_invariance(inp_a, inp_b, label, predictor, vectorizer, dim_reducer):
                                    ("GET FUCKED UP. GET FUCKEEED UP. GOT A DRINK THAT YOU CANT PUT DOWN??? GET FUCK UP GET FUCKED UP.", [0, 0, 1, 0, 0, 0]),
                                    ("I WILL END YOU!!!", [0, 0, 0, 1, 0, 0]),
                                    ("A pair of jew-hating weiner nazi schmucks.", [0, 0, 0, 0, 0, 1])])
-def test_class_correctly_classified(inp_a, label, predictor, vectorizer):
+def test_class_correctly_classified(inp_a, label, predictor, vectorizer, dim_reducer):
     """Model predicts classes correctly"""
-    label_a = get_label(text=inp_a, predictor=predictor, vectorizer=vectorizer)
+    label_a = get_label(text=inp_a, predictor=predictor, vectorizer=vectorizer, dim_reducer=dim_reducer)
     assert label_a[label.index(1)] == 1
 #
 #
