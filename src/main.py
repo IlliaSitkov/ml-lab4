@@ -133,3 +133,4 @@ print(df)
 
 dump(classifier, "my_model.joblib")
 dump(tfidf_vectorizer, "vectorizer.joblib")
+dump(pca4, 'pca_model.joblib')
