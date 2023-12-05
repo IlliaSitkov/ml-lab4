@@ -2,7 +2,7 @@ import sys
 import requests
 from io import BytesIO
 import joblib
-from preproc import preprocess_comments
+from src.preproc import preprocess_comments
 
 
 def load_model_from_github(model_name):
