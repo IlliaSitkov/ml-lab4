@@ -29,7 +29,7 @@ root/
 
 The trained models used for the classification task are stored in the `data` directory. The following models are included:
 
-- **my_model.joblib:** A trained classifier using MultiOutputClassifier with LogisticRegression as the base estimator. It was trained on a dataset of 80,000 comments.
+- **classifier.joblib:** A trained classifier using MultiOutputClassifier with LogisticRegression as the base estimator. It was trained on a dataset of 80,000 comments.
 
 - **vectorizer.joblib:** A trained TfIdfVectorizer, which converts text comments into vectors with 1024 features. It was trained on a dataset of 100,000 comments.
 
@@ -43,7 +43,7 @@ To use the trained models, you can load them into your Python environment and ap
 import joblib
 
 # Load the models:
-predictor = joblib.load('data/my_model.joblib')
+predictor = joblib.load('data/classifier.joblib')
 vectorizer = joblib.load('data/vectorizer.joblib')
 dim_reducer = joblib.load('data/pca_model.joblib')
 

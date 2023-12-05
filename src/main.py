@@ -68,6 +68,6 @@ def train_model():
 
     df.to_csv("sample_submission.csv", index=False)
 
-    dump(classifier, "my_model.joblib")
+    dump(classifier, "classifier.joblib")
     dump(tfidf_vectorizer, "vectorizer.joblib")
     dump(pca4, 'pca_model.joblib')

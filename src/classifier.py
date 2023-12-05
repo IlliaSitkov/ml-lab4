@@ -25,7 +25,7 @@ def classify_text(text, predictor, vectorizer, dim_reducer):
 
 
 def main():
-    classifier = load_model_from_github('my_model')
+    classifier = load_model_from_github('classifier')
     vectorizer = load_model_from_github('vectorizer')
     pca_model = load_model_from_github('pca_model')
 

@@ -4,7 +4,7 @@ from joblib import load
 
 @pytest.fixture(scope="module")
 def predictor(request):
-    predictor_loc = "data/my_model.joblib"
+    predictor_loc = "data/classifier.joblib"
     model = load(predictor_loc)
     return model
 
