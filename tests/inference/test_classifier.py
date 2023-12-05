@@ -4,7 +4,7 @@ import subprocess
 def test_classifier():
     command = [
         'python',
-        'src/classifier',
+        'src/classifier.py',
         'This is a test comment for classification.'
     ]
     result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
