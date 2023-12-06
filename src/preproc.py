@@ -27,7 +27,7 @@ def lemmatize_text(text):
 
 def clean_comments(comments):
     translator = str.maketrans("", "", string.punctuation)
-    comments_clean = [comment.translate(translator) for comment in comments]
+    comments_clean = [comment.translate(translator).lower() for comment in comments]
     return comments_clean
 
 

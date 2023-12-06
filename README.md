@@ -16,6 +16,7 @@ This repository contains the code for the final lab project of the Machine Learn
 root/
 ├── .github/workflows/           # GitHub Actions configurations
 ├── data/                        # Trained models
+├── configs/                     # Model training configs
 ├── EDA/                         # Data analysis and statistics notebooks
 ├── src/                         # Source code
 │   ├── classifier.py            # Inference script
@@ -31,9 +32,9 @@ The trained models used for the classification task are stored in the `data` dir
 
 - **classifier.joblib:** A trained classifier using MultiOutputClassifier with LogisticRegression as the base estimator. It was trained on a dataset of 80,000 comments.
 
-- **vectorizer.joblib:** A trained TfIdfVectorizer, which converts text comments into vectors with 1024 features. It was trained on a dataset of 100,000 comments.
+- **vectorizer.joblib:** A trained TfIdfVectorizer, which converts text comments into vectors with 5000 features. It was trained on a dataset of 100,000 comments.
 
-- **pca_model.joblib:** A trained PCA (Principal Component Analysis) model, which reduces the dimensionality of the 1024-dimensional vectors to 866 dimensions. It was trained on a dataset of 100,000 comments.
+- **pca_model.joblib:** A trained PCA (Principal Component Analysis) model, which reduces the dimensionality of the 5000-dimensional vectors to 4591 dimensions with explained variance value of 0.99. It was trained on a dataset of 100,000 comments.
 
 ## Usage
 

@@ -24,20 +24,20 @@ def train_model():
     train_comments_preproc = preprocess_comments(train_comments)
     test_comments_preproc = preprocess_comments(test_comments)
 
-    tfidf_vectorizer = TfidfVectorizer(max_features=1024, strip_accents="unicode", stop_words="english")
+    tfidf_vectorizer = TfidfVectorizer(max_features=5000, strip_accents="unicode", stop_words="english")
 
     train_feature_vectors_tfidf = tfidf_vectorizer.fit_transform(train_comments_preproc).toarray()
 
     test_feature_vectors_tfidf = tfidf_vectorizer \
         .transform(test_comments_preproc).toarray()
 
-    pca4 = PCA(n_components=0.95)
-    reduced_train4_pca = pca4.fit_transform(train_feature_vectors_tfidf)
+    pca = PCA(n_components=0.99)
+    reduced_train_pca = pca.fit_transform(train_feature_vectors_tfidf)
 
-    reduced_test4_pca = pca4.transform(test_feature_vectors_tfidf)
+    reduced_test4_pca = pca.transform(test_feature_vectors_tfidf)
 
     X_train, X_test, y_train, y_test = train_test_split(
-        reduced_train4_pca, train_labels, test_size=0.2, random_state=42
+        reduced_train_pca, train_labels, test_size=0.2, random_state=42
     )
 
     classifier = MultiOutputClassifier(LogisticRegression())
@@ -70,4 +70,4 @@ def train_model():
 
     dump(classifier, "classifier.joblib")
     dump(tfidf_vectorizer, "vectorizer.joblib")
-    dump(pca4, 'pca_model.joblib')
+    dump(pca, 'pca_model.joblib')
